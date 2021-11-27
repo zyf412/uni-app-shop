@@ -9,19 +9,18 @@
 		"style": {
 			"enablePullDownRefresh": false
 		}
-
 	}, {
 		"path": "pages/cart/cart",
 		"style": {
 			"enablePullDownRefresh": false
 		}
-
 	}, {
 		"path": "pages/my/my",
 		"style": {
 			"enablePullDownRefresh": false
 		}
-	}],
+	}    
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "#fff",
 		"navigationBarTitleText": "优购",
@@ -59,5 +58,24 @@
 			}
 		],
 		"selectedColor":"#C00000"
-	}
+	},
+	"subPackages": [{
+		"root":"subpkg",
+		"pages": [
+			{
+				"path" : "goods_detail/goods_detail",
+				"style" : {}                                                                               
+			}
+			
+		    ,{
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    // "navigationBarTitleText": "",
+                    // "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+	}]
 }
