@@ -13,7 +13,7 @@ uni.$showMsg = function(title = '数据请求失败！', duration = 1500) {
 	})
 }
 // 请求拦截器
-$http.baseUrl = 'https://www.escook.cn'
+$http.baseUrl = 'https://api-hmugo-web.itheima.net'
 $http.beforeRequest = function (options) {
   uni.showLoading({
   	title:'数据加载中...'
@@ -21,7 +21,7 @@ $http.beforeRequest = function (options) {
 }
 // 响应拦截器 
 $http.afterRequest = function () {
-  uni.hideLoading()
+  uni.hideLoading() 
 }
 
 Vue.config.productionTip = false
