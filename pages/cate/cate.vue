@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<my-search @click="gotoSearch"></my-search>
 		<view class="scroll-view-container">
 			<scroll-view class="left-scroll-view" scroll-y="true" :style="{height: wh + 'px'}" >
 			<block v-for="(item,index) in cateList" :key = "index">
@@ -38,7 +39,7 @@
 		},
 		onLoad() {
 			const sysInfo = uni.getSystemInfoSync()
-			this.wh = sysInfo.windowHeight
+			this.wh = sysInfo.windowHeight - 50
 			this.getCateList()
 		},
 		methods: {
@@ -48,7 +49,7 @@
 					// console.log(res)
 					this.cateList = res.message
 					this.cateLevel2 = res.message[0].children
-					console.log(this.cateLevel2)
+					// console.log(this.cateLevel2)
 			},
 			activeChange(index) {
 				this.active = index
@@ -60,6 +61,12 @@
 				uni.navigateTo({
 					url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
 				})
+			},
+			// 跳转到分包中的搜索页面 
+			gotoSearch() { 
+				uni.navigateTo({ 
+					url: '/subpkg/search/search' ,
+					}) 
 			}
 		}
 	}
