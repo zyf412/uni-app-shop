@@ -4,9 +4,8 @@
 		<!-- 轮播图的区域 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for="(item, i) in swiperList" :key="i">
-				<!-- <image :src="item.image_src" mode=""></image> -->
 				<navigator class="swiper-item" :url="'/subpkg/goods_detail/goods_detail?goods_id=' + item.goods_id ">
-					{{i+1}}
+					<image :src="item.image_src" mode=""></image>
 				</navigator>
 			</swiper-item>
 		</swiper>
@@ -15,10 +14,7 @@
 		<view class="nav-list">
 			<!---->
 			<view class="nav-item" v-for="(item, i) in navList" :key="i" @click="navClickHandler(item)">
-				<!-- <image :src="item.image_src" class="nav-img"></image> -->
-				<view class="nav-img">
-
-				</view>
+				<image class="nav-img" :src="item.image_src"></image>
 			</view>
 		</view>
 
@@ -29,14 +25,13 @@
 			<!-- 每一个楼层的 item 项 -->
 			<view class="floor-item" v-for="(item, i) in floorList" :key="i">
 				<!-- 楼层的标题 -->
-				<!-- <image :src="item.floor_title.image_src" class="floor-title"></image> -->
-				<view class="floor-title">{{item.floor_title.name}}</view>
+				<image :src="item.floor_title.image_src" class="floor-title"></image>
 				<!-- 楼层的图片区域 -->
 				  <!-- 楼层的图片区域 -->
 				<view class="floor-img-box">
 				          <!-- 左侧大图片的盒子 -->
 				          <navigator class="left-img-box" :url="item.product_list[0].url">
-				            <!-- <image :src="item.product_list[0].image_src" :style="{width: item.product_list[0].image_width + 'rpx'}" mode="widthFix"></image> -->
+				            <image :src="item.product_list[0].image_src" :style="{width: item.product_list[0].image_width + 'rpx'}" mode="widthFix"></image>
 							<!-- <view :style="{width: item.product_list[0].image_width + 'rpx'}" mode = "widthFix"></view> -->
 							<!-- <view class="left-img-box">
 								123
@@ -44,10 +39,9 @@
 						  </navigator>
 				          <!-- 右侧 4 个小图片的盒子 -->
 				          <view class="right-img-box">
-				            <!-- <navigator class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url"> -->
-							<!-- <view  v-for="(item2, i2) in item.product_list" :key="i2"  v-if="i2 !== 0" >123</view> -->
-							<navigator  v-for="(item2, i2) in item.product_list" :key="i2"  v-if="i2 !== 0" :url="item2.url">123</navigator>
-				            <!-- </navigator> -->
+				            <navigator class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url"> 
+							<image :src="item2.image_src" mode="widthFix" :style="{width: item2.image_width + 'rpx'}"></image> 
+							</navigator>
 				          </view>
 				</view>
 			</view>
@@ -123,8 +117,10 @@
 			width: 100%;
 			height: 100%;
 			background-color: #007AFF;
-			text-align: center;
-			line-height: 330rpx；
+			image{
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 
@@ -136,39 +132,22 @@
 		.nav-img {
 			width: 128rpx;
 			height: 140rpx;
-			background-color: pink;
 		}
 	}
 	.floor-title {
 		width: 100%;
 		height: 60rpx;
-		background-color: pink;
+		// background-color: pink;
 	}
-	.floor-img-box {
-		display: flex;
-		padding-left: 10rpx;
-		background-color: pink;
-		justify-content: space-around;
-		.left-img-box {
-			width: 232rpx;
-			height: 464rpx;
-			background-color: skyblue;
-		}
-		.right-img-box {
+		.right-img-box { 
 			display: flex;
 			flex-wrap: wrap;
-			width: 100%;
-			justify-content: space-around;
-			background-color: orange;
-			align-content: space-around;
-			
-			navigator {
-				width: 45%;
-				height: 45%;
-				background-color: black;
+			justify-content: space-around; 
 			}
-		}
-	}
+		.floor-img-box {
+			display: flex; 
+			padding-left: 10rpx;
+			}
 	.search-box {
 		// 设置定位效果为“吸顶” 
 		position: sticky; // 吸顶的“位置” 
