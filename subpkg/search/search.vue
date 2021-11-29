@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="search-box"> <!-- 使用 uni-ui 提供的搜索组件 -->
-			<uni-search-bar @input="input" v-model="ev" :radius="100" cancelButton="none"></uni-search-bar>
+			<uni-search-bar @input="input" v-model="ev" :radius="100" cancelButton="none" focus="true"></uni-search-bar>
 		</view>
 		<!-- 搜索建议列表 -->
 		<view class="sugg-list"  v-if="searchResults.length !== 0"> 
